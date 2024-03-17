@@ -1,7 +1,6 @@
 function encrypt() {
     const inputText = document.getElementById('inputText').value;
 
-    
     if (/[A-Z0-9!@#$%^&*(),.?":{}|<>]/.test(inputText)) {
         alert('Apenas letras minúsculas são permitidas!');
         return;
@@ -19,14 +18,21 @@ function encrypt() {
                 'o': 'ober',
                 'u': 'ufat',
             };
-            encryptedText += cipher[char];
+            
+            if (cipher.hasOwnProperty(char)) {
+                encryptedText += cipher[char];
+            } else {
+                encryptedText += char; 
+            }
         } else {
-            encryptedText += char;
+            encryptedText += char; 
         }
     }
-  
+
     document.getElementById('result').value = encryptedText;
 }
+
+
 
 
 function decrypt() {
@@ -39,37 +45,36 @@ function decrypt() {
         'ufat': 'u'
     };
     let decryptedText = '';
-    let currentWord = '';
+    let i = 0;
 
-    for (let i = 0; i < inputText.length; i++) {
-        const char = inputText[i];
-        if (char === 'e' && inputText.slice(i, i + 5) === 'enter') {
-            decryptedText += decipher['enter'];
-            i += 4;
-        } else if (char === 'i' && inputText.slice(i, i + 4) === 'imes') {
-            decryptedText += decipher['imes'];
-            i += 3;
-        } else if (char === 'a' && inputText.slice(i, i + 2) === 'ai') {
-            decryptedText += decipher['ai'];
-            i++;
-        } else if (char === 'o' && inputText.slice(i, i + 4) === 'ober') {
-            decryptedText += decipher['ober'];
-            i += 3;
-        } else if (char === 'u' && inputText.slice(i, i + 4) === 'ufat') {
-            decryptedText += decipher['ufat'];
-            i += 3;
-        } else {
-            decryptedText += char;
+    while (i < inputText.length) {
+        let found = false;
+
+        // Verifica se existe algum código criptografado a partir da posição atual
+        for (let code in decipher) {
+            if (inputText.startsWith(code, i)) {
+                // Se encontrado, adiciona a letra correspondente e atualiza o índice
+                decryptedText += decipher[code];
+                i += code.length;
+                found = true;
+                break;
+            }
         }
 
+        // Se nenhum código foi encontrado, mantém o caractere original
+        if (!found) {
+            decryptedText += inputText[i];
+            i++;
+        }
     }
 
     document.getElementById('result').value = decryptedText;
     return decryptedText;
 }
+
 function copyText() {
     const element = document.getElementById("result");
-    const textToCopy = element.value; 
+    const textToCopy = element.value;
     navigator.clipboard.writeText(textToCopy)
         .then(() => {
             alert("Texto copiado para a área de transferência!");
@@ -79,8 +84,8 @@ function copyText() {
             alert("Erro ao copiar texto. Por favor, tente novamente.");
         });
 }
-$(document).ready(function(){
-    $("#btn").click(function(){
+$(document).ready(function () {
+    $("#btn").click(function () {
         $("#inputText").fadeOut(300).fadeIn(300);
     });
 });
@@ -88,7 +93,3 @@ function clearText() {
     document.getElementById('inputText').value = '';
     document.getElementById('result').value = '';
 }
-
-
-
-// Path: scripts/script.js

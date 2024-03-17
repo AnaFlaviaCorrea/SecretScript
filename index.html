@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>secretScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="/styles/style.css">
@@ -23,17 +24,20 @@
         <div class="text-container">
 
 
-            <button id="clearButton" onclick="clearText()">🗑️</button>
+            <button id="clearButton" class="clear-button" onclick="clearText()">🗑️</button>
             <textarea id="inputText" placeholder="Digite para Criptografar ou Descriptografar"></textarea>
-           
+
 
 
             <div class="action-buttons-container">
                 <button id="btn" class="action-button cryptograph-button" onclick="encrypt()">Criptografar</button>
                 <button id="btn2" class="action-button" onclick="decrypt()">Descriptografar</button>
             </div>
-            <p id="atention">Por favor, utilize apenas letras minúsculas e não use caracteres especiais para garantir o
-                funcionamento correto do processo de criptografia e descriptografia.</p>
+            <p id="atention">
+                <i class="fa fa-exclamation-circle"></i> Por favor, utilize apenas letras minúsculas e não use caracteres
+                especiais para garantir o
+                funcionamento correto do processo de criptografia e descriptografia.
+            </p>
             <textarea id="result" readonly placeholder="Texto criptografado..."></textarea>
 
 
@@ -43,10 +47,18 @@
             <img src="assets/High quality products 1 1.jpg" alt="Alternate text" class="image-right" />
         </div>
 
-       
+
     </div>
     <footer>
-        <p>Desenvolvido por <a href="#">Nome do Desenvolvedor</a></p>
+        <p>Desenvolvido por <a>Ana Flávia Corrêa </a></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/anaflaviafreitascorrea/" target="_blank">
+                <img src="assets/linkedin.png" alt="Logo do Linkedin" class="linkedin">
+            </a>
+            <a href="https://github.com/AnaFlaviaCorrea" target="_blank">
+                <img src="assets/github.png" alt="Logo do Github" class="github">
+            </a>
+        </div>
     </footer>
     <script src="/scripts/script.js"></script>
 </body>

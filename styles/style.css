@@ -35,11 +35,10 @@ body {
 }
 
 .title {
-    font-size: 2rem;
     margin-bottom: 1rem;
     align-items: center;
     color: #3498db;
-    font-size: 24px;
+    font-size: 36px;
     margin: 0;
 
 }
@@ -59,8 +58,9 @@ textarea {
     border: #3498db;
     background-color: #f0f0f0;
     height: 100px;
-    
+
 }
+
 textarea::placeholder {
     color: #3498db;
     font-size: 1.1rem;
@@ -90,26 +90,27 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     grid-column: 3;
     position: relative;
-    
+
 }
 
 .image-right {
-    width: 400px;
+    max-width: 100%;
     border-radius: 10px;
     margin-top: 0px;
-    height: 550px;
+    height: auto;
     border: 1px solid #3498db;
 
 }
+
 #image-placeholder {
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    pointer-events: none; /* Garante que a imagem não interfere com a interação do textarea */
+    pointer-events: none;
 }
 
 .action-button-container {
@@ -129,8 +130,9 @@ footer {
     width: 150px;
     color: #3498db;
     border: #3498db solid 2px;
-    
+
 }
+
 #copyButton {
     background-color: white;
     color: #3498db;
@@ -140,7 +142,27 @@ footer {
     font-size: 1.1rem;
     transition: box-shadow 0.3s;
     width: 150px;
+}
 
+#clearButton {
+    float: right;
+    margin-top: 10px;
+    margin-left: 50%;
+    border: #3498db solid 2px;
+    border-radius: 16px;
+}
+.clear-button::after {
+    content: "Limpar os campos"; 
+    position: absolute; 
+    background-color: #fff; 
+    padding: 4px 8px; 
+    border: 1px solid #3498db ;
+    border-radius: 4px; 
+    display: none; 
+}
+
+.clear-button:hover::after {
+    display: inline-block; 
 }
 
 .cryptograph-button {
