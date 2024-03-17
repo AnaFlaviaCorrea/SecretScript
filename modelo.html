@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Crypto Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        textarea, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        #result {
+            height: 150px;
+        }
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Crypto Page</h1>
+    <textarea id="inputText" placeholder="Type text to encrypt/decrypt"></textarea>
+    <button id="encryptButton" onclick="encrypt()">Encrypt</button>
+    <button id="decryptButton" onclick="decrypt()">Decrypt</button>
+    <textarea id="result" readonly></textarea>
+    <button id="copyButton" onclick="copyText()">Copy to Clipboard</button>
+    <footer>
+        Developed by Your Name
+    </footer>
+
+    <script>
+        function encrypt() {
+            const inputText = document.getElementById('inputText').value.toLowerCase();
+            const cipher = {
+                'e': 'enter',
+                'i': 'imes',
+                'a': 'ai',
+                'o': 'ober',
+                'u': 'ufat'
+            };
+            let encryptedText = '';
+
+            for (let i = 0; i < inputText.length; i++) {
+                const char = inputText[i];
+                if (cipher.hasOwnProperty(char)) {
+                    encryptedText += cipher[char];
+                } else {
+                    encryptedText += char;
+                }
+            }
+
+            document.getElementById('result').value = encryptedText;
+        }
+
+        function decrypt() {
+            const inputText = document.getElementById('result').value;
+            const decipher = {
+                'enter': 'e',
+                'imes': 'i',
+                'ai': 'a',
+                'ober': 'o',
+                'ufat': 'u'
+            };
+            let decryptedText = '';
+            let currentWord = '';
+
+            for (let i = 0; i < inputText.length; i++) {
+                const char = inputText[i];
+                if (char === 'e' && inputText.slice(i, i + 5) === 'enter') {
+                    decryptedText += decipher['enter'];
+                    i += 4;
+                } else if (char === 'i' && inputText.slice(i, i + 4) === 'imes') {
+                    decryptedText += decipher['imes'];
+                    i += 3;
+                } else if (char === 'a' && inputText.slice(i, i + 2) === 'ai') {
+                    decryptedText += decipher['ai'];
+                    i++;
+                } else if (char === 'o' && inputText.slice(i, i + 4) === 'ober') {
+                    decryptedText += decipher['ober'];
+                    i += 3;
+                } else if (char === 'u' && inputText.slice(i, i + 4) === 'ufat') {
+                    decryptedText += decipher['ufat'];
+                    i += 3
+                } else {                
+                    decryptedText += char;
+                }   
+
+            }
+        }

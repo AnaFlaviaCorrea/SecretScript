@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secretScript</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/logo_transparent.png" alt="Logo" class="logo" />
+        </div>
+        <h1 class="title">Secret Script</h1>
+    </nav>
+    <div class="container">
+
+        <div class="text-container">
+
+
+            <button id="clearButton" onclick="clearText()">🗑️</button>
+            <textarea id="inputText" placeholder="Digite para Criptografar ou Descriptografar"></textarea>
+           
+
+
+            <div class="action-buttons-container">
+                <button id="btn" class="action-button cryptograph-button" onclick="encrypt()">Criptografar</button>
+                <button id="btn2" class="action-button" onclick="decrypt()">Descriptografar</button>
+            </div>
+            <p id="atention">Por favor, utilize apenas letras minúsculas e não use caracteres especiais para garantir o
+                funcionamento correto do processo de criptografia e descriptografia.</p>
+            <textarea id="result" readonly placeholder="Texto criptografado..."></textarea>
+
+
+            <button id="copyButton" onclick="copyText()">Copiar</button>
+        </div>
+        <div class="image-container">
+            <img src="assets/High quality products 1 1.jpg" alt="Alternate text" class="image-right" />
+        </div>
+
+       
+    </div>
+    <footer>
+        <p>Desenvolvido por <a href="#">Nome do Desenvolvedor</a></p>
+    </footer>
+    <script src="/scripts/script.js"></script>
+</body>
+
+</html>
