@@ -21,6 +21,9 @@ Um aplicativo simples para criptografar e descriptografar texto usando um algori
 - JavaScript
 - Biblioteca Crypto-JS
 - Biblioteca jQuery
+## Teste
+
+Você pode testar este projeto online utilizando o Vercel, onde publicamos o nosso repositório.
 
 ## Curso
 
