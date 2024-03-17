@@ -24,6 +24,7 @@ Um aplicativo simples para criptografar e descriptografar texto usando um algori
 ## Teste
 
 Você pode testar este projeto online utilizando o Vercel, onde publicamos o nosso repositório.
+https://secret-script.vercel.app/
 
 ## Curso
 
